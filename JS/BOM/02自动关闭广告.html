@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mc {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: skyblue;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mc">
+        <p>这是一个广告</p>
+        <p>将会在<span>5</span>秒后关闭</p>
+    </div>
+
+    <script>
+        let mc = document.querySelector(".mc");
+        let p = document.querySelector("span");
+
+        let timer = setTimeout(closemc, 5000);
+
+        function closemc() {
+            mc.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.24.0/axios.min.js"></script>
+</head>
+
+<body>
+    <form action="#">
+        用户名: <input type="text" name="username" id="uname">
+        <br> 密码: <input type="text" name='password' id="pwd">
+        <br>
+        <input type="submit" value="提交" id="submit">
+    </form>
+    <a href="./login.html">登录</a>
+
+    <script>
+        const uname = document.querySelector('#uname')
+        const pwd = document.querySelector('#pwd')
+        const submit = document.querySelector('#submit')
+
+        submit.addEventListener('click', () => {
+            myAjax('POST', '/api/reguser', `username=${uname.value}&password=${pwd.value}`)
+        })
+
+
+        function myAjax(method, url, data) {
+            const xhr = new XMLHttpRequest();
+            xhr.open(method, 'http://127.0.0.1:80' + url);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(data);
+        }
+    </script>
+</body>
+
+</html>

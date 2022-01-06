@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const p = new Promise(function(resove, reject) {
+            setTimeout(function() {
+                // 成功
+                let data = '数据库中的数据'
+                    // resove(data)
+
+                // 失败
+                let err = '数据获取失败'
+                reject(err)
+            }, 1000)
+        })
+
+        p.then(value => {
+            console.log(value);
+        }, reason => {
+            console.error(reason);
+        })
+    </script>
+</body>
+
+</html>

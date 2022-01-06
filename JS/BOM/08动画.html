@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点击我到500</button>
+    <button>点击我到800</button>
+    <div class="box"></div>
+
+
+    <script>
+        let box = document.querySelector(".box");
+
+        function animate(obj, target, callback) {
+            // console.log(callback);
+            clearInterval(obj.timer);
+            obj.timer = setInterval(() => {
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+                        callback();
+                    }
+                }
+                let step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                obj.style.left = obj.offsetLeft + step + "px";
+            }, 30);
+        }
+
+        function change(obj) {
+            obj.style.backgroundColor = "blue";
+        }
+
+        let btns = document.querySelectorAll("button");
+        btns[0].addEventListener("click", function() {
+            animate(box, 500, function() {
+                change(box);
+            });
+        })
+        btns[1].addEventListener("click", function() {
+            animate(box, 800);
+        })
+    </script>
+</body>
+
+</html>

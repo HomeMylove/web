@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getUsers() {
+            setTimeout(() => {
+                let data = '用户信息'
+                iterator.next(data)
+            }, 1000)
+        }
+
+        function getOrders() {
+            setTimeout(() => {
+                let data = '订单信息'
+                iterator.next(data)
+            }, 1000)
+        }
+
+        function getGoods() {
+            setTimeout(() => {
+                let data = '商品信息'
+                iterator.next(data)
+            }, 1000)
+        }
+
+        function* gen() {
+            let data = yield getUsers()
+            console.log(data);
+            data = yield getOrders()
+            console.log(data);
+            data = yield getGoods()
+            console.log(data);
+        }
+
+        const iterator = gen()
+        iterator.next()
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+            width: 180px;
+            height: 160px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../images/tenshi.gif" alt="">
+
+
+    <script>
+        let img = document.querySelector("img");
+
+        document.addEventListener("mousemove", function(e) {
+            let x = e.clientX;
+            let y = e.clientY;
+            img.style.left = x - 90 + "px";
+            img.style.top = y - 80 + "px";
+        })
+    </script>
+</body>
+
+</html>

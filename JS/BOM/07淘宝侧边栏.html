@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .w {
+            width: 1200px;
+            margin: 10px auto;
+        }
+        
+        .slider-bar {
+            position: absolute;
+            right: 120px;
+            top: 300px;
+            width: 40px;
+            height: 120px;
+            background-color: red;
+        }
+        
+        span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+        
+        .header {
+            height: 200px;
+            background-color: skyblue;
+        }
+        
+        .banner {
+            height: 300px;
+            background-color: pink;
+        }
+        
+        .main {
+            height: 1000px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <span class="goBack">
+            <a href="javascript:;">返回顶部</a>
+        </span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主要区域</div>
+
+    <script>
+        let sliderbar = document.querySelector(".slider-bar");
+        let banner = document.querySelector(".banner");
+        let main = document.querySelector(".main");
+        let span = document.querySelector("span");
+
+        let bannerTop = banner.offsetTop;
+        let sliderbarTop = sliderbar.offsetTop;
+        let mainTop = main.offsetTop;
+        console.log(main.offsetTop);
+
+
+        document.addEventListener("scroll", function() {
+            // console.log(window.pageYOffset);
+            if (window.pageYOffset >= bannerTop) {
+                sliderbar.style.position = "fixed";
+                sliderbar.style.top = sliderbarTop - bannerTop + "px";
+            } else {
+                sliderbar.style.position = "absolute";
+                sliderbar.style.top = sliderbarTop + "px";
+            }
+            if (window.pageYOffset >= mainTop) {
+                span.style.display = "block";
+            } else {
+                span.style.display = "none";
+            }
+        })
+
+        span.addEventListener("click", function() {
+            animate(window, 0)
+        })
+
+        function animate(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(() => {
+                if (window.pageYOffset == target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+                        callback();
+                    }
+                }
+                let step = (target - window.pageYOffset) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+                window.scroll(0, window.pageYOffset + step);
+            }, 15);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function* gen() {
+            // console.log(111);
+            yield one()
+                // console.log(222);
+            yield two()
+                // console.log(333);
+            yield three()
+        }
+
+        function one() {
+            setTimeout(() => {
+                console.log(111);
+                iterator.next()
+            }, 1000)
+        }
+
+        function two() {
+            setTimeout(() => {
+                console.log(222);
+                iterator.next()
+            }, 2000)
+        }
+
+        function three() {
+            setTimeout(() => {
+                console.log(333);
+                iterator.next()
+            }, 3000)
+        }
+
+        let iterator = gen()
+        iterator.next()
+    </script>
+
+</body>
+
+</html>

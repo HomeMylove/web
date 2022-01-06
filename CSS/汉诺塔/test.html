@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .box {
+            margin: 100px auto;
+            border: 1px solid black;
+            height: 50px;
+            width: 380px;
+        }
+        
+        .option {
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            margin: 10px 10px;
+            width: 40px;
+            height: 30px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        let opts = document.querySelectorAll('.option');
+        for (let i = 0; i < opts.length; i++) {
+            opts[i].onclick = function() {
+                // this.style.backgroundColor = 'red'
+                alert('i')
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="option">富强</div>
+        <div class="option">民主</div>
+        <div class="option">文明</div>
+        <div class="option">和谐</div>
+        <div class="option">自由</div>
+        <div class="option">平等</div>
+    </div>
+
+
+
+</body>
+<script>
+    let opts = document.querySelectorAll('.option');
+    for (let i = 0; i < opts.length; i++) {
+        opts[i].onclick = sayHi()
+    }
+
+    function sayHi() {
+        console.log('i');
+    }
+</script>
+
+</html>

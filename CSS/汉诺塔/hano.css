@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    position: relative;
+    width: 1200px;
+    height: 500px;
+    border: 1px solid black;
+    margin: 10px auto;
+}
+
+div[class^="bar"] {
+    position: absolute;
+    height: 400px;
+    width: 10px;
+    background: black;
+    bottom: 0;
+    transform: translate(-50%);
+}
+
+.bar1 {
+    left: 300px;
+}
+
+.bar2 {
+    left: 600px;
+}
+
+.bar3 {
+    left: 900px;
+}
+
+div[class^="block"] {
+    position: absolute;
+    height: 30px;
+    background-color: #f00;
+    border: black 1px solid;
+    text-align: center;
+    transform: translate(-50%);
+}

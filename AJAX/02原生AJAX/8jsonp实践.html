@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    用户名: <input type="text" id="username">
+    <p></p>
+
+    <script>
+        const input = document.querySelector('input')
+        const p = document.querySelector('p')
+
+        // 定义 handle() 函数
+        function handle(data) {
+            input.style.border = 'solid 1px solid'
+            p.innerHTML = data.msg
+        }
+
+        input.addEventListener('blur', function() {
+            let username = this.value
+                // 创建 script 标签
+            const script = document.createElement('script')
+                // 设置 src 属性
+            script.src = 'http://127.0.0.1:80/jsonp-server'
+                // 插入
+            document.body.appendChild(script)
+
+        })
+    </script>
+    <!-- <script>
+        const d = {
+            msg: 'ok'
+        }
+        handle(d)
+    </script> -->
+</body>
+
+</html>

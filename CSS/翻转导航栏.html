@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            margin: 100px auto;
+            height: 36px;
+            width: 280px;
+            /* border: black 1px solid; */
+            perspective: 400px;
+        }
+        
+        li {
+            position: relative;
+            float: left;
+            list-style: none;
+            width: 120px;
+            height: 36px;
+            margin: 0 10px;
+            transition: all .5s;
+            transform-style: preserve-3d;
+        }
+        
+        li>div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #f00;
+            line-height: 36px;
+            text-align: center;
+        }
+        
+        li .front {
+            transform: translateZ(18px);
+        }
+        
+        li .bottom {
+            background-color: #0f0;
+            transform: rotateX(-90deg) translateZ(18px);
+        }
+        
+        li:hover {
+            transform: rotateX(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="box">
+            <div class="front">窗前明月光</div>
+            <div class="bottom">疑是地上霜</div>
+        </li>
+        <li class="box">
+            <div class="front">窗前明月光</div>
+            <div class="bottom">疑是地上霜</div>
+        </li>
+    </ul>
+</body>
+
+</html>

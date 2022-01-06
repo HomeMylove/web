@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .big {
+            width: 400px;
+            height: 400px;
+            background-color: #f00;
+        }
+        
+        .small {
+            width: 200px;
+            height: 200px;
+            background-color: #0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big">变变变</div>
+
+    <script>
+        let div = document.querySelector("div");
+        window.addEventListener("resize", function() {
+            if (window.innerWidth < 800) {
+                // div.className = "small";
+                div.style.display = "none";
+            } else {
+                // div.className = "big";
+                div.style.display = "block";
+            }
+        })
+    </script>
+</body>
+
+</html>

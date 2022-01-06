@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            /* background-color: #f00; */
+            margin: 100px auto;
+        }
+        
+        .box>div {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            top: 50%;
+            left: 50%;
+            /* background-color: #00f; */
+        }
+        
+        .box>div>div {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgb(17, 5, 5);
+        }
+        
+        .o2 {
+            bottom: 0;
+            right: 0;
+        }
+        
+        .box .point1 {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        
+        .box .point2 {
+            transform: translate(-50%, -50%) rotate(60deg);
+        }
+        
+        .box .point3 {
+            transform: translate(-50%, -50%) rotate(120deg);
+        }
+        
+        .point4 .o1 {
+            background-color: rgb(240, 230, 230);
+        }
+        
+        .box .point4 {
+            transform: translate(-50%, -50%) rotate(0deg);
+            animation: move 1s steps(6) infinite;
+        }
+        
+        @keyframes move {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="point1">
+            <div class="o1"></div>
+            <div class="o2"></div>
+        </div>
+        <div class="point2">
+            <div class="o1"></div>
+            <div class="o2"></div>
+        </div>
+        <div class="point3">
+            <div class="o1"></div>
+            <div class="o2"></div>
+        </div>
+        <div class="point4">
+            <div class="o1"></div>
+        </div>
+    </div>
+</body>
+
+</html>

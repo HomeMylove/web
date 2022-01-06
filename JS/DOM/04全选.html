@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        
+        table,
+        th,
+        td {
+            text-align: center;
+            border: 1px solid black;
+        }
+        
+        table {
+            margin: 100px auto;
+        }
+        
+        th,
+        td {
+            width: 100px;
+            height: 20px;
+        }
+        
+        th {
+            background-color: blue;
+        }
+        
+        .bg {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" name="item" id="">
+                </th>
+                <th>
+                    商品
+                </th>
+                <th>
+                    价格
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox" name="item" id="">
+                </td>
+                <td>
+                    iphone8
+                </td>
+                <td>
+                    6500
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="item" id="">
+                </td>
+                <td>
+                    iphone8
+                </td>
+                <td>
+                    6500
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="item" id="">
+                </td>
+                <td>
+                    iphone8
+                </td>
+                <td>
+                    6500
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="item" id="">
+                </td>
+                <td>
+                    iphone8
+                </td>
+                <td>
+                    6500
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let trs = document.querySelector("tbody").querySelectorAll("tr");
+        for (let i = 0; i < trs.length; i++) {
+            trs[i].onmouseover = function() {
+                this.className = "bg"
+            }
+            trs[i].onmouseleave = function() {
+                this.className = ""
+            }
+        }
+
+        let all = document.querySelector("thead").querySelector("input");
+        let items = document.querySelector("tbody").querySelectorAll("input");
+
+        // 上面的被点击后，下面的选择情况和上面一样
+        all.onclick = function() {
+            for (let i = 0; i < items.length; i++) {
+                items[i].checked = this.checked
+            }
+        }
+
+
+        for (let i = 0; i < items.length; i++) {
+            items[i].onclick = function() {
+                flag = true;
+                for (let j = 0; j < items.length; j++) {
+                    if (!items[j].checked) {
+                        flag = false;
+                    }
+                }
+                all.checked = flag;
+            }
+        }
+    </script>
+</body>
+
+</html>

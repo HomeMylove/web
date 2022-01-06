@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const p = new Promise((resove, reject) => {
+                setTimeout(() => {
+                    if (1) resove('用户数据')
+                    reject('用户数据出错啦')
+                }, 1000)
+            })
+            // console.log(p);
+
+
+        // then() 方法的返回值:
+        // 如果 返回 非 Promise 对象，State为 成功，Result为 返回值
+        // 如果 返回 Promise 对象， State 和该对象相同， Result 也相同
+        const result = p.then(value => {
+            console.log(value);
+            // return 123;
+            const p = new Promise((resove, reject) => {
+                // resove('ok')
+                reject('wrong')
+            })
+            return p;
+        }, reason => {
+            console.error(reason);
+        })
+
+        console.log(result);
+    </script>
+</body>
+
+</html>

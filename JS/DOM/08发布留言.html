@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            background-color: pink;
+            width: 200px;
+            height: 20px;
+            margin: 2px 0;
+        }
+        
+        .dlt {
+            float: right;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <p>当前留言<span></span>条</p>
+    <ul>
+    </ul>
+
+    <script>
+        let text = document.querySelector("textarea");
+        let btn = document.querySelector("button");
+        let ul = document.querySelector("ul");
+        let span = document.querySelector("span");
+        span.innerText = ul.children.length;
+
+        btn.onclick = function() {
+            let li = document.createElement("li");
+            let dlt = document.createElement("a");
+            dlt.className = "dlt";
+            dlt.innerText = "删除";
+
+            if (text.value) {
+                li.innerText = text.value;
+                li.appendChild(dlt);
+                // ul.appendChild(li);
+                ul.insertBefore(li, ul.children[0]);
+                span.innerText = ul.children.length;
+                text.value = ""
+            } else {
+                alert("没输入");
+                return;
+            }
+
+            dlt.onclick = function() {
+                ul.removeChild(this.parentNode);
+                span.innerText = ul.children.length;
+            }
+        }
+    </script>
+</body>
+
+</html>

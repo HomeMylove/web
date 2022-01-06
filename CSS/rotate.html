@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+            transition: all .5s;
+        }
+        
+        .box:hover {
+            transform: rotate(360deg)
+        }
+        
+        .box1 {
+            position: relative;
+            margin-top: 20px;
+            width: 200px;
+            height: 20px;
+            border: 1px solid black;
+        }
+        
+        .box1::after {
+            position: absolute;
+            display: block;
+            content: '';
+            width: 10px;
+            height: 10px;
+            /* background-color: #f00; */
+            border: black 1px solid;
+            border-top-width: 0;
+            border-right-width: 0;
+            transform: rotate(-45deg);
+            right: 10px;
+            top: 4px;
+            transition: all .2s;
+        }
+        
+        .box1:hover::after {
+            transform: rotate(-225deg);
+        }
+        
+        .box2 {
+            width: 200px;
+            height: 200px;
+            margin: 10px auto;
+            background-color: pink;
+            transform-origin: right bottom;
+            transition: all .5s;
+        }
+        
+        .box2:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <div class="box1"></div>
+
+    <div class="box2">我会绕着右下角旋转</div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>transform</title>
+    <style type="text/css">
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+        }
+        
+        .box:hover {
+            transform: translate(100px, 100px);
+        }
+        
+        .box1:hover {
+            background-color: #0f0;
+            transform: translateX(50%);
+            /* 相对于自身的宽度或者高度 */
+        }
+        
+        .box3 {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: blue;
+        }
+        
+        .inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* margin: -100px 0 0 -100px; */
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        /* translate对行内元素无效 */
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box3">
+        <div class="inner"></div>
+    </div>
+</body>
+
+</html>

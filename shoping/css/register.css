@@ -1,0 +1,146 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    height: 84px;
+    border-bottom: 2px solid red;
+}
+
+.logo {
+    padding-top: 18px;
+}
+
+.registerarea {
+    height: 522px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+.registerarea h3 {
+    height: 42px;
+    border-bottom: 1px solid #ccc;
+    background-color: #cecece;
+    line-height: 42px;
+    font-size: 16px;
+    padding: 0 30px;
+}
+
+.registerarea h3 .login {
+    float: right;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.registerarea h3 .login a {
+    color: red;
+}
+
+.reg_form {
+    width: 600px;
+    /* background-color: skyblue; */
+    margin: 50px auto 0;
+}
+
+.reg_form ul li {
+    margin-bottom: 20px;
+}
+
+.reg_form ul li label {
+    display: inline-block;
+    text-align: right;
+    width: 88px;
+}
+
+.reg_form ul li .ipt {
+    width: 242px;
+    height: 37px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.reg_form ul li i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.error_icon {
+    background: url(../images/error.png) no-repeat;
+}
+
+.success_icon {
+    background: url(../images/success.png) no-repeat;
+}
+
+.reg_form ul li .error {
+    color: red;
+}
+
+.reg_form ul li .success {
+    color: green;
+}
+
+.safe em {
+    padding: 0 12px;
+    color: white;
+}
+
+.safe {
+    padding-left: 166px;
+}
+
+.safe .ruo {
+    background-color: #de1111;
+}
+
+.safe .zhong {
+    background-color: #40b83f;
+}
+
+.safe .qiang {
+    background-color: #f79100;
+}
+
+.agree {
+    padding-left: 93px;
+}
+
+.agree input {
+    vertical-align: middle;
+}
+
+.agree a {
+    color: blue;
+}
+
+.btn {
+    width: 200px;
+    height: 34px;
+    font-size: 14px;
+    line-height: 34px;
+    background-color: red;
+    color: white;
+    margin: 30px 0 0 100px;
+}
+
+.footer .mod_copyright {
+    text-align: center;
+}
+
+.footer .mod_copyright .links {
+    margin: 10px 0;
+}
+
+.footer .mod_copyright .links :nth-child(n+2):before {
+    content: '|';
+    margin: 0 10px;
+}
+
+.footer .mod_copyright .copyright {
+    line-height: 20px;
+}

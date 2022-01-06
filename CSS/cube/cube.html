@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            perspective: 800px;
+        }
+        
+        .container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            animation: move 10s infinite linear;
+            transform-style: preserve-3d;
+        }
+        
+        div[class^="box"] {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            /* animation: move 2s infinite linear; */
+        }
+        
+        img {
+            width: 200px;
+            height: 200px;
+            opacity: .9;
+        }
+        
+        .box1 {
+            transform: rotateY(0deg) translateZ(100px);
+        }
+        
+        .box2 {
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        
+        .box3 {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        
+        .box4 {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        
+        .box5 {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        
+        .box6 {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        
+        @keyframes move {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(-360deg) rotateZ(360deg)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box1">
+            <img src="images/img1.jpg" alt="">
+        </div>
+        <div class="box2">
+            <img src="images/img2.jpg" alt="">
+        </div>
+        <div class="box3">
+            <img src="images/img3.jpg" alt="">
+        </div>
+        <div class="box4">
+            <img src="images/img4.jpg" alt="">
+        </div>
+        <div class="box5">
+            <img src="images/img5.jpg" alt="">
+        </div>
+        <div class="box6">
+            <img src="images/img6.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+</html>

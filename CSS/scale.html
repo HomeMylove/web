@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #f00;
+            transition: all .5s;
+            margin: 100px auto;
+            transform-origin: right top;
+            overflow: hidden;
+        }
+        
+        .box:hover {
+            transform: scale(2);
+        }
+        
+        .box1 {
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+        
+        img {
+            width: 200px;
+            height: 200px;
+            transition: all 0.5s;
+        }
+        
+        .box1:hover img {
+            transform: scale(1.2);
+        }
+        
+        .box2 {
+            position: relative;
+            margin: 0 auto;
+            width: 500px;
+            height: 30px;
+            border: 1px solid black;
+        }
+        
+        ul {
+            position: absolute;
+            left: 70px;
+            bottom: -23px;
+        }
+        
+        ul li {
+            list-style: none;
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid blue;
+            border-radius: 50%;
+            text-align: center;
+            margin: 10px;
+            cursor: pointer;
+            transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        ul li:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        hello
+    </div>
+
+    <div class="box1">
+        <a href="https://www.bilibili.com" target="_blank">
+            <img src="images/sadaharu.png" alt="">
+        </a>
+    </div>
+
+    <div class="box2">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>跳转</button>
+    <p></p>
+    <script>
+        let btn = document.querySelector("button");
+        let p = document.querySelector("p");
+        btn.addEventListener("click", function() {
+            location.href = "https://www.bilibili.com/";
+        })
+        let timer = 5;
+        setInterval(() => {
+            if (timer == 0) {
+                location.href = "https://www.bilibili.com/";
+            }
+            p.innerHTML = `您将在${timer}秒后跳转`;
+            timer--;
+        }, 1000);
+    </script>
+</body>
+
+</html>

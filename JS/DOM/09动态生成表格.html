@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        td,
+        th {
+            border: #333 1px solid;
+        }
+        
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+        
+        tbody tr {
+            height: 30px;
+            width: 100px;
+            background-color: pink;
+        }
+        
+        a {
+            text-decoration: none;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>神之眼</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        const datas = [{
+            name: '甘雨',
+            eye: '冰',
+            score: 100
+        }, {
+            name: '胡桃',
+            eye: '火',
+            score: 90
+        }, {
+            name: '心海',
+            eye: '水',
+            score: 100
+        }, {
+            name: '温迪',
+            eye: '风',
+            score: 100
+        }, {
+            name: '甘雨',
+            eye: '冰',
+            score: 100
+        }, {
+            name: '胡桃',
+            eye: '火',
+            score: 90
+        }, {
+            name: '心海',
+            eye: '水',
+            score: 100
+        }]
+
+        let tbody = document.querySelector("tbody");
+
+        for (let i = 0; i < datas.length; i++) {
+            let tr = document.createElement("tr");
+            tbody.appendChild(tr);
+
+            // 创建数据单元格
+            for (let k in datas[i]) {
+                let td = document.createElement("td");
+                td.innerText = datas[i][k];
+                tr.appendChild(td);
+            }
+
+            // 创建删除单元格
+            let td = document.createElement("td");
+            td.innerHTML = "<a href='javascript:;'>删除</a>";
+            tr.appendChild(td);
+
+            // 添加删除操作
+            td.onclick = function() {
+                tbody.removeChild(this.parentNode);
+            }
+        }
+    </script>
+</body>
+
+</html>

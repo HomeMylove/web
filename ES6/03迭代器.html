@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const genshin = {
+            name: 'liyue',
+            ssr: [
+                'Ganyu',
+                'Hutao',
+                'Qiqi',
+                'Shenhe'
+            ],
+            [Symbol.iterator]() {
+                let index = 0;
+                return {
+                    next: () => {
+                        if (index < this.ssr.length) {
+                            const result = {
+                                value: this.ssr[index],
+                                done: false
+                            }
+                            index++;
+                            return result;
+                        } else {
+                            return {
+                                value: undefined,
+                                done: true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        for (let v of genshin) {
+            console.log(v);
+        }
+        const iterator = genshin[Symbol.iterator]();
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+    </script>
+</body>
+
+</html>

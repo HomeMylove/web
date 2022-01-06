@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav {
+            height: 40px;
+            margin-top: 100px;
+            background-color: #eee;
+            border-bottom: 1px solid red;
+        }
+        
+        ul {
+            margin-left: 100px;
+        }
+        
+        li {
+            list-style: none;
+            float: left;
+            padding: 0 10px;
+            line-height: 40px;
+        }
+        
+        .red {
+            background-color: red;
+            color: white;
+        }
+        
+        .details {
+            margin-left: 100px;
+        }
+        
+        .details div {
+            display: none;
+        }
+        
+        .details .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <ul>
+            <li class="red">商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>评价</li>
+            <li>手机社区</li>
+        </ul>
+    </nav>
+    <div class="details">
+        <div style="display: block;">
+            这是商品的详情
+        </div>
+        <div>
+            这是规格与包装
+        </div>
+        <div>
+            这是售后保障
+        </div>
+        <div>
+            这是评价
+        </div>
+        <div>
+            这是手机社区
+        </div>
+    </div>
+
+    <script>
+        let navs = document.querySelector("nav").querySelectorAll("li");
+        let deatils = document.querySelector(".details").querySelectorAll("div");
+
+
+        for (let i = 0; i < navs.length; i++) {
+            navs[i].setAttribute("data-index", i)
+            navs[i].onclick = function() {
+                for (let i = 0; i < navs.length; i++) {
+                    navs[i].className = ''
+                }
+                this.className = "red"
+
+                for (let i = 0; i < deatils.length; i++) {
+                    deatils[i].style.display = "none";
+                }
+                let num = this.getAttribute("data-index");
+                deatils[num].style.display = "block";
+            }
+        }
+        // console.log(navs[2].dataset.index);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .preview-img {
+            margin: 40px 0 0 40px;
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+        
+        .preview-img img {
+            width: 400px;
+            height: 400px;
+        }
+        
+        .mask {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 300px;
+            height: 300px;
+            background-color: #fede4f;
+            border: 1px solid #e4e4e4;
+            opacity: .5;
+            z-index: 10;
+            cursor: move;
+        }
+        
+        .big {
+            display: none;
+            position: absolute;
+            overflow: hidden;
+            left: 410px;
+            top: 0;
+            width: 600px;
+            height: 600px;
+            background-color: #f00;
+            z-index: 9999;
+        }
+        
+        .big .bigimg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview-img">
+        <img src="https://img2.baidu.com/it/u=3366493032,3870904858&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=728" alt="">
+        <div class="mask"></div>
+        <div class="big">
+            <img src="https://img2.baidu.com/it/u=3366493032,3870904858&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=728" alt="" class="bigimg">
+        </div>
+
+        <script>
+            let preview_img = document.querySelector(".preview-img");
+            let mask = document.querySelector(".mask");
+            let big = document.querySelector(".big");
+            let bigImg = document.querySelector(".bigimg");
+
+            preview_img.addEventListener("mouseover", function() {
+                mask.style.display = "block";
+                big.style.display = "block";
+            })
+            preview_img.addEventListener("mouseleave", function() {
+                mask.style.display = "none";
+                big.style.display = "none";
+            })
+            preview_img.addEventListener("mousemove", function(e) {
+                let x = e.pageX - this.offsetLeft;
+                let y = e.pageY - this.offsetTop;
+
+                let maskLeft = x - mask.offsetWidth / 2;
+                let maskTop = y - mask.offsetWidth / 2;
+                let maxMask = preview_img.offsetWidth - mask.offsetWidth;
+
+                if (maskLeft <= 0) {
+                    maskLeft = 0;
+                } else if (maskLeft >= maxMask) {
+                    maskLeft = maxMask;
+                }
+                if (maskTop <= 0) {
+                    maskTop = 0;
+                } else if (maskTop >= maxMask) {
+                    maskTop = maxMask;
+                }
+                mask.style.left = maskLeft + "px";
+                mask.style.top = maskTop + "px";
+
+                let maxBig = bigImg.offsetWidth - big.offsetWidth;
+                let bigX = maskLeft * maxBig / maxMask;
+                let bigY = maskTop * maxBig / maxMask;
+                console.log(bigX);
+
+                bigImg.style.left = -bigX + "px";
+                bigImg.style.top = -bigY + "px";
+
+
+            })
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+
+// 安装包 npm i name@veision
+// 创建package.json npm init -y
+// 一次性安装所有的包 npm i
+// 卸载包 npm uninstall name ，同时删除dependencies里的
+// 安装到devD npm i name -D
+// 了解包的用法,访问 http://www.npmjs.com
+
+// 查看下包地址
+// npm config get registry
+// 修改
+// npm config set registry=https://registry.npm.taobao.org/
+
+// 通过npm包管理工具，将 nrm 安装为全局可用的工具
+// npm i nrm -g
+// -g为全局包
+// 只有工具性质的包，才有必要安装到全局，详情看文档
+
+// 查看所有可用镜像源
+// nrm ls 
+// 切换为taoabao
+// nrm use taobao
+
+规范的包
+1.以单独的目录存在
+2.顶级目录下包含 package.json文件
+3.package.json 文件中必须含有 name,version,main 属性 代表 名字，版本号，入口
